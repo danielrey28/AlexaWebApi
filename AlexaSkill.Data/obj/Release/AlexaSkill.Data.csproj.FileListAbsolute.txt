@@ -1,0 +1,24 @@
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\AlexaSkill.Data.dll.config
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\AlexaSkill.Data.dll
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\AlexaSkill.Data.pdb
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\EntityFramework.dll
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\Newtonsoft.Json.dll
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\EntityFramework.xml
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\bin\Release\Newtonsoft.Json.xml
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\obj\Release\AlexaSkill.Data.csprojResolveAssemblyReference.cache
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\obj\Release\AlexaSkill.Data.dll
+C:\Users\DanielReyes\Documents\Visual Studio 2015\Projects\AlexaSkill\AlexaSkill.Data\obj\Release\AlexaSkill.Data.pdb
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\AlexaSkill.Data.dll.config
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\AlexaSkill.Data.dll
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\AlexaSkill.Data.pdb
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\EntityFramework.dll
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\Newtonsoft.Json.dll
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\EntityFramework.xml
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\Newtonsoft.Json.xml
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\obj\Release\AlexaSkill.Data.csprojResolveAssemblyReference.cache
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\obj\Release\AlexaSkill.Data.dll
+C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\obj\Release\AlexaSkill.Data.pdb
