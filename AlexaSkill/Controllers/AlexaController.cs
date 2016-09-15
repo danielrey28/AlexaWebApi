@@ -21,7 +21,7 @@ namespace AlexaSkill.Controllers
             {
                 var request = new Requests().Create(new Data.Request
                 {
-                    MemberId = alexaRequest.Session.Attributes.MemberId,
+                    MemberId = alexaRequest.Session.Attributes?.MemberId ?? 0,
                     Timestamp = alexaRequest.Request.Timestamp,
                     Intent = (alexaRequest.Request.Intent == null) ? "" : alexaRequest.Request.Intent.Name,
                     AppId = alexaRequest.Session.Application.ApplicationId,
@@ -31,10 +31,9 @@ namespace AlexaSkill.Controllers
                     IsNew = alexaRequest.Session.New,
                     Version = alexaRequest.Version,
                     Type = alexaRequest.Request.Type,
-                    Reason = "",
-                    DateCreated = DateTime.UtcNow,
-                    Slots = ""
-
+                    Reason = alexaRequest.Request.Reason ?? "",
+                    SlotsList = alexaRequest.Request.Intent.GetSlots(),
+                    DateCreated = DateTime.UtcNow
                 });
 
                 AlexaResponse response = null;
@@ -102,7 +101,28 @@ namespace AlexaSkill.Controllers
                 case "TopCoursesIntent":
                     response = TopCoursesIntentHandler(request);
                     break;
+                case "AMAZON.CancelIntent":
+                case "AMAZON.StopIntent":
+                    response = CancelOrStopIntentHandler(request);
+                    break;
+                case "AMAZON.HelpIntent":
+                    response = HelpIntentHandler(request);
+                    break;
             }
+            return response;
+            
+        }
+
+        private AlexaResponse HelpIntentHandler(Request request)
+        {
+            var response = new AlexaResponse("This is the help intent message that would be too long to type.", false);
+            response.Response.Reprompt.OutputSpeech.Text = "Please select one, top courses or new courses?";
+            return response;
+        }
+
+        private AlexaResponse CancelOrStopIntentHandler(Request request)
+        {
+            return new AlexaResponse("Thanks for listening, let's talk again soon.", true);
         }
 
         private AlexaResponse NewCoursesIntentHndler(Request request)
@@ -124,13 +144,12 @@ namespace AlexaSkill.Controllers
                 int maxLimit = 10;
                 var limitValue = request.SlotsList.FirstOrDefault(s => s.Key == "Limit").Value;
 
-                if (!string.IsNullOrWhiteSpace(limitValue) && int.TryParse(limitValue, out limit) && !(limit >= 1 &&
-                    limit <= maxLimit))
+                if (!string.IsNullOrWhiteSpace(limitValue) && int.TryParse(limitValue, out limit) && !(limit >= 1 && limit <= maxLimit))
                 {
                     limit = maxLimit;
                 }
             }
-            var output = new StringBuilder("");
+            var output = new StringBuilder();
             output.AppendFormat("Here are the top {0} courses. ", limit);
 
             using (var db = new azurealexaEntities())

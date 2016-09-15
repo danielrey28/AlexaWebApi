@@ -22,3 +22,15 @@ C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\bin\Release\Newtonsoft.Json
 C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\obj\Release\AlexaSkill.Data.csprojResolveAssemblyReference.cache
 C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\obj\Release\AlexaSkill.Data.dll
 C:\Users\DanielReyes\Documents\Alexa\AlexaSkill.Data\obj\Release\AlexaSkill.Data.pdb
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\AlexaSkill.Data.dll.config
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\AlexaSkill.Data.dll
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\AlexaSkill.Data.pdb
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\EntityFramework.dll
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\Newtonsoft.Json.dll
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\EntityFramework.xml
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\bin\Release\Newtonsoft.Json.xml
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\obj\Release\AlexaSkill.Data.csprojResolveAssemblyReference.cache
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\obj\Release\AlexaSkill.Data.dll
+C:\Users\Epyon\Documents\GitHub\AlexaWebApi\AlexaSkill.Data\obj\Release\AlexaSkill.Data.pdb

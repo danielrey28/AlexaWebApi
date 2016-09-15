@@ -1,10 +1,29 @@
 ﻿{
   "intents": [
     {
-      "intent": "HelloWorldIntent"
+      "intent": "NewCoursesIntent",
+      "slots": [ ]
     },
     {
-      "intent": "AMAZON.HelpIntent"
+      "intent": "TopCoursesIntent",
+      "slots": [
+        {
+          "name": "Limit",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.CancelIntent",
+      "slots": [ ]
+    },
+    {
+      "intent": "AMAZON.StopIntent",
+      "slots":  [] 
+    },
+    {
+      "intent": "AMAZON.HelpIntent",
+      "slots":  [] 
     }
   ] 
 }

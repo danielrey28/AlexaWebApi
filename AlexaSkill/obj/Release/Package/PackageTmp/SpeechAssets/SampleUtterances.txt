@@ -1,10 +1,11 @@
-﻿HelloWorldIntent say hello
-HelloWorldIntent say hello world
-HelloWorldIntent hello
-HelloWorldIntent say hi
-HelloWorldIntent say hi world
-HelloWorldIntent hi
-HelloWorldIntent how are you
+﻿NewCoursesIntent what are todays new releases
+NewCoursesIntent todays new releases
+NewCoursesIntent latest courses
 
-AMAZON.HelpIntent assistance needed please
-AMAZON.HelpIntent i need assistance
+TopCoursesIntent popular
+TopCoursesIntent top courses
+TopCoursesIntent top {Limit} courses
+
+AMAZON.CancelIntent cease everything
+AMAZON.StopIntent abort getting pluralsight feed
+AMAZON.HelpIntent give me guidance

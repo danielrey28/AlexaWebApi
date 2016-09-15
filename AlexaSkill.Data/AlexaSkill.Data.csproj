@@ -85,6 +85,7 @@
     <Compile Include="Request.cs">
       <DependentUpon>PluralSightDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Request.partial.cs" />
     <Compile Include="Requests.cs" />
   </ItemGroup>
   <ItemGroup>
