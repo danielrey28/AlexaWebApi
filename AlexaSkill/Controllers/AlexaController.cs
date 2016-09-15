@@ -115,7 +115,7 @@ namespace AlexaSkill.Controllers
 
         private AlexaResponse HelpIntentHandler(Request request)
         {
-            var response = new AlexaResponse("This is the help intent message that would be too long to type.", false);
+            var response = new AlexaResponse("This is the help intent message that would be too long to type. Sorry.", false);
             response.Response.Reprompt.OutputSpeech.Text = "Please select one, top courses or new courses?";
             return response;
         }

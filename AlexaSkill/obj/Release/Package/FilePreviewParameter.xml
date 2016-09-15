@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="Microsoft-ApiApp68a53e544f604412b3f5e827c9686898" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\AlexaSkill\\AlexaSkill\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\AlexaSkill\\AlexaSkill\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\WorkingAlexa\\AlexaWebApi\\AlexaSkill\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\WorkingAlexa\\AlexaWebApi\\AlexaSkill\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="AlexaSkill.Data.azurealexaEntities-Web.config Connection String" description="" value="AlexaSkill.Data.azurealexaEntities_ConnectionString" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\AlexaSkill\\AlexaSkill\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AlexaSkill.Data.azurealexaEntities']/@connectionString" />
+  <parameter name="azurealexaEntities-Web.config Connection String" description="" value="metadata=res://*/PluralSightDataModel.csdl|res://*/PluralSightDataModel.ssdl|res://*/PluralSightDataModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=tcp:alexademo.database.windows.net,1433;Initial Catalog=azurealexa;Persist Security Info=True;User ID=dreyes;Password=Barton001!;MultipleActiveResultSets=True;Application Name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\WorkingAlexa\\AlexaWebApi\\AlexaSkill\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='azurealexaEntities']/@connectionString" />
   </parameter>
-  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-AlexaSkill-20160913042155.mdf;Initial Catalog=aspnet-AlexaSkill-20160913042155;Integrated Security=True" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\AlexaSkill\\AlexaSkill\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=tcp:alexademo.database.windows.net,1433;Initial Catalog=azurealexa;Persist Security Info=True;User ID=dreyes;Password=Barton001!;MultipleActiveResultSets=True;Application Name=EntityFramework" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\WorkingAlexa\\AlexaWebApi\\AlexaSkill\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
 </parameters>
