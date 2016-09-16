@@ -1,11 +1,10 @@
-﻿NewCoursesIntent what are todays new releases
-NewCoursesIntent todays new releases
-NewCoursesIntent latest courses
+﻿CompanyHolidayIntent when is the {Holiday} company holiday
+CompanyHolidayIntent when was the {Holiday} company holiday
 
-TopCoursesIntent popular
-TopCoursesIntent top courses
-TopCoursesIntent top {Limit} courses
 
-AMAZON.CancelIntent cease everything
-AMAZON.StopIntent abort getting pluralsight feed
-AMAZON.HelpIntent give me guidance
+NewHiresIntent all new {Eecriteria}
+NewHiresIntent newest {Limit} {Eecriteria}
+
+AMAZON.CancelIntent nevermind
+AMAZON.StopIntent stop
+AMAZON.HelpIntent i need help

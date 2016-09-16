@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using AlexaSkill.Data;
+using Microsoft.Ajax.Utilities;
 
 namespace AlexaSkill.Controllers
 {
@@ -71,13 +72,13 @@ namespace AlexaSkill.Controllers
 
         private AlexaResponse LaunchRequestHandler(Request request)
         {
-            var response = new AlexaResponse("Welcome to Pluralsight. What would you like to hear? Top courses or new courses?")
+            var response = new AlexaResponse("Welcome to Namely. What would you like to hear?")
             {
                 Session = { MemberId = request.MemberId }
             };
-            response.Response.Card.Title = "Pluralsight";
-            response.Response.Card.Content = "Hello\ncruel world!";
-            response.Response.Reprompt.OutputSpeech.Text = "Please pick one, Top courses or new courses?";
+            response.Response.Card.Title = "Namely";
+            response.Response.Card.Content = "Say HR";
+            response.Response.Reprompt.OutputSpeech.Text = "Please pick one, New Hires orCompany Holidays?";
             response.Response.ShouldEndSession = false;
 
             if (request.Intent == "AMAZON.NoIntent")
@@ -95,11 +96,11 @@ namespace AlexaSkill.Controllers
 
             switch (request.Intent)
             {
-                case "NewCourseIntent":
-                    response = NewCoursesIntentHndler(request);
+                case "CompanyHolidayIntent":
+                    response = CompanyHolidayIntentHandler(request);
                     break;
-                case "TopCoursesIntent":
-                    response = TopCoursesIntentHandler(request);
+                case "NewHiresIntent":
+                    response = NewHiresIntentHandler(request);
                     break;
                 case "AMAZON.CancelIntent":
                 case "AMAZON.StopIntent":
@@ -115,8 +116,8 @@ namespace AlexaSkill.Controllers
 
         private AlexaResponse HelpIntentHandler(Request request)
         {
-            var response = new AlexaResponse("This is the help intent message that would be too long to type.", false);
-            response.Response.Reprompt.OutputSpeech.Text = "Please select one, top courses or new courses?";
+            var response = new AlexaResponse("You can ask Namely to get a New Hires list or information about your company holidays.", false);
+            response.Response.Reprompt.OutputSpeech.Text = "How about asking about New Hires or your company holidays?";
             return response;
         }
 
@@ -125,20 +126,39 @@ namespace AlexaSkill.Controllers
             return new AlexaResponse("Thanks for listening, let's talk again soon.", true);
         }
 
-        private AlexaResponse NewCoursesIntentHndler(Request request)
+        private AlexaResponse CompanyHolidayIntentHandler(Request request)
         {
-            var output = new StringBuilder("Here are the latest courses. ");
-
-            using (var db = new azurealexaEntities())
+            var output = new StringBuilder();
+            var endsession = true;
+            if (request.SlotsList.Any())
             {
-                db.Courses.Take(10).OrderByDescending(c=>c.DateCreated).ToList().ForEach(c=> output.AppendFormat("{0} by {1}. ", c.Title, c.Author));
+                var holidayCriteria = request.SlotsList.FirstOrDefault(s => s.Key == "Holiday").Value;
+                switch (holidayCriteria)
+                {
+                    case "last":
+                        output.Append($"Your {holidayCriteria} company holiday, Labor Day, was on September 5th.");
+                        break;
+                    case "next":
+                        output.Append($"Your {holidayCriteria} company holiday, Thanksgiving, will be on November 24th.");
+                        break;
+                }
+                
+                
             }
-            return new AlexaResponse(output.ToString());
+            else
+            {
+                output.Append("Would you like to know when your next company holiday will be? Say yes, or no.");
+                endsession = false;
+            }
+
+            return new AlexaResponse(output.ToString(), endsession);
         }
 
-        private AlexaResponse TopCoursesIntentHandler(Request request)
+        private AlexaResponse NewHiresIntentHandler(Request request)
         {
             int limit = 10;
+            var criteria = string.Empty;
+
             if (request.SlotsList.Any())
             {
                 int maxLimit = 10;
@@ -148,14 +168,38 @@ namespace AlexaSkill.Controllers
                 {
                     limit = maxLimit;
                 }
-            }
-            var output = new StringBuilder();
-            output.AppendFormat("Here are the top {0} courses. ", limit);
 
-            using (var db = new azurealexaEntities())
-            {
-                db.Courses.Take(limit).OrderByDescending(c => c.Votes).ToList().ForEach(c => output.AppendFormat("{0} by {1}. ", c.Title, c.Author));
+                criteria = request.SlotsList.FirstOrDefault(s => s.Key == "Criteria").Value;
             }
+
+            var output = new StringBuilder();
+
+            criteria = string.IsNullOrWhiteSpace(criteria) ? "hires" : criteria;
+
+            output.Append($"Here are the top {limit} {criteria}. ");
+
+            switch (criteria)
+            {
+                case "hires":
+                    output.AppendLine("Arnold Shortman");
+                    output.AppendLine("Gerald Johanssen");
+                    output.AppendLine("Helga Crabtree");
+                    output.AppendLine("Oscar Kokoshka");
+                    output.AppendLine("Ernie Potts");
+                    break;
+                case "employees":
+                    output.AppendLine("Arnold Shortman");
+                    output.AppendLine("Gerald Johanssen");
+                    output.AppendLine("Helga Crabtree");
+                    break;
+                case "contractors":
+                    output.AppendLine("Oscar Kokoshka");
+                    output.AppendLine("Ernie Potts");
+                    break;
+            }
+
+            
+
             return new AlexaResponse(output.ToString());
         }
 

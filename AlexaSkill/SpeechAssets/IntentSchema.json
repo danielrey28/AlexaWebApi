@@ -1,15 +1,24 @@
 ﻿{
   "intents": [
     {
-      "intent": "NewCoursesIntent",
-      "slots": [ ]
+      "intent": "CompanyHolidayIntent",
+      "slots": [
+        {
+          "name": "Holiday",
+          "type":  "HOLIDAY"
+        }
+      ]
     },
     {
-      "intent": "TopCoursesIntent",
+      "intent": "NewHiresIntent",
       "slots": [
         {
           "name": "Limit",
           "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Eecriteria",
+          "type": "EECRITERIA"
         }
       ]
     },
@@ -19,11 +28,11 @@
     },
     {
       "intent": "AMAZON.StopIntent",
-      "slots":  [] 
+      "slots": [ ]
     },
     {
       "intent": "AMAZON.HelpIntent",
-      "slots":  [] 
+      "slots": [ ]
     }
   ] 
 }
