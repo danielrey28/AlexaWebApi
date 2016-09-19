@@ -15,59 +15,45 @@ namespace AlexaSkill.Controllers
     public class AlexaController : ApiController
     {
         [HttpPost, Route("api/alexa/demo")]
-        public dynamic Pluralsight(AlexaRequest alexaRequest)
+        public AlexaResponse Namely(AlexaRequest alexaRequest)
         {
-
-            try
+            var request = new Requests().Create(new Data.Request
             {
-                var request = new Requests().Create(new Data.Request
-                {
-                    MemberId = alexaRequest.Session.Attributes?.MemberId ?? 0,
-                    Timestamp = alexaRequest.Request.Timestamp,
-                    Intent = (alexaRequest.Request.Intent == null) ? "" : alexaRequest.Request.Intent.Name,
-                    AppId = alexaRequest.Session.Application.ApplicationId,
-                    RequestId = alexaRequest.Request.RequestId,
-                    SessionId = alexaRequest.Session.SessionId,
-                    UserId = alexaRequest.Session.User.UserId,
-                    IsNew = alexaRequest.Session.New,
-                    Version = alexaRequest.Version,
-                    Type = alexaRequest.Request.Type,
-                    Reason = alexaRequest.Request.Reason ?? "",
-                    SlotsList = alexaRequest.Request.Intent.GetSlots(),
-                    DateCreated = DateTime.UtcNow
-                });
+                MemberId = alexaRequest.Session.Attributes?.MemberId ?? 0,
+                Timestamp = alexaRequest.Request.Timestamp,
+                Intent = (alexaRequest.Request.Intent == null) ? "" : alexaRequest.Request.Intent.Name,
+                AppId = alexaRequest.Session.Application.ApplicationId,
+                RequestId = alexaRequest.Request.RequestId,
+                SessionId = alexaRequest.Session.SessionId,
+                UserId = alexaRequest.Session.User.UserId,
+                IsNew = alexaRequest.Session.New,
+                Version = alexaRequest.Version,
+                Type = alexaRequest.Request.Type,
+                Reason = alexaRequest.Request.Reason ?? "",
+                SlotsList = alexaRequest.Request.Intent.GetSlots(),
+                DateCreated = DateTime.UtcNow
+            });
 
-                AlexaResponse response = null;
+            AlexaResponse response = null;
 
-                switch (request.Type)
-                {
-                    case "LaunchRequest":
-                        response = LaunchRequestHandler(request);
-                        break;
-                    case "IntentRequest":
-                        response = IntentRequestHandler(request);
-                        break;
-                    case "SessionEndedRequest":
-                        response = SessionEndedRequestHandler(request);
-                        break;
-                }
+            switch (request.Type)
+            {
+                case "LaunchRequest":
+                    response = LaunchRequestHandler(request);
+                    break;
+                case "IntentRequest":
+                    response = IntentRequestHandler(request);
+                    break;
+                case "SessionEndedRequest":
+                    response = SessionEndedRequestHandler(request);
+                    break;
+            }
 
-                
-                return response;
-                
-            }
-            catch (EntityCommandExecutionException ex)
-            {
-                return new { message = ex.Message, exceptiontype = ex.GetType(), request = alexaRequest, inner = ex.InnerException };
-            }
-            catch (DbEntityValidationException ex)
-            {
-                return new { message = ex.Message, exceptiontype = ex.GetType(), request = alexaRequest, validation = ex.EntityValidationErrors};
-            }
-            catch (Exception ex)
-            {
-                return new {message = ex.Message, exceptiontype = ex.GetType(), exceptionsource = ex.Data};
-            }
+
+            return response;
+
+
+
         }
 
         private AlexaResponse LaunchRequestHandler(Request request)
@@ -99,6 +85,9 @@ namespace AlexaSkill.Controllers
                 case "CompanyHolidayIntent":
                     response = CompanyHolidayIntentHandler(request);
                     break;
+                case "WhosOutIntent":
+                    response = WhosOutIntentHandler(request);
+                    break;
                 case "NewHiresIntent":
                     response = NewHiresIntentHandler(request);
                     break;
@@ -111,7 +100,45 @@ namespace AlexaSkill.Controllers
                     break;
             }
             return response;
-            
+
+        }
+
+        private AlexaResponse WhosOutIntentHandler(Request request)
+        {
+            var output = new StringBuilder();
+            var endsession = true;
+            if (request.SlotsList.Any())
+            {
+                var firstName = request.SlotsList.FirstOrDefault(s => s.Key == "FirstName").Value;
+                var lastName = request.SlotsList.FirstOrDefault(s => s.Key == "LastName").Value;
+                if (firstName != string.Empty)
+                {
+                    firstName = firstName.ToLower();
+                    switch (firstName)
+                    {
+                        case "arnold":
+                            output.Append($"{firstName} {lastName} is working from home today.");
+                            break;
+                        case "daniel":
+                            output.Append($"{firstName} {lastName} should be in the office today.");
+                            break;
+                        default:
+                            output.AppendLine($"I'm not sure who {firstName} {lastName} is. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    output.AppendLine("I didn't get the name. Try again.");
+                }
+            }
+            else
+            {
+                output.Append("Tell me who you would like to check on.");
+                endsession = false;
+            }
+
+            return new AlexaResponse(output.ToString(), endsession);
         }
 
         private AlexaResponse HelpIntentHandler(Request request)
@@ -142,8 +169,8 @@ namespace AlexaSkill.Controllers
                         output.Append($"Your {holidayCriteria} company holiday, Thanksgiving, will be on November 24th.");
                         break;
                 }
-                
-                
+
+
             }
             else
             {
@@ -198,7 +225,7 @@ namespace AlexaSkill.Controllers
                     break;
             }
 
-            
+
 
             return new AlexaResponse(output.ToString());
         }
@@ -208,9 +235,9 @@ namespace AlexaSkill.Controllers
             return null;
         }
 
-        
 
-       
+
+
     }
 
 }

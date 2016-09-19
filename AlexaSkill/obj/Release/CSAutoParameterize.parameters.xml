@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-AlexaSkill-20160913042155.mdf;Initial Catalog=aspnet-AlexaSkill-20160913042155;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\WorkingAlexa\\AlexaWebApi\\AlexaSkill\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Epyon\\Documents\\GitHub\\AlexaWebApi\\AlexaSkill\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
   <parameter name="azurealexaEntities-Web.config Connection String" description="azurealexaEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/PluralSightDataModel.csdl|res://*/PluralSightDataModel.ssdl|res://*/PluralSightDataModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=tcp:alexademo.database.windows.net,1433;initial catalog=azurealexa;persist security info=True;user id=dreyes;password=Barton001!;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\DanielReyes\\Documents\\Visual\ Studio\ 2015\\Projects\\WorkingAlexa\\AlexaWebApi\\AlexaSkill\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='azurealexaEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Epyon\\Documents\\GitHub\\AlexaWebApi\\AlexaSkill\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='azurealexaEntities']/@connectionString" />
   </parameter>
 </parameters>
