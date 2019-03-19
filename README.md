@@ -1,2 +1,2 @@
 # AlexaWebApi
-Alexa with Web API for Namyly Hackathon Project
+Alexa with Web API Experimentation
